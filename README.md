@@ -1,25 +1,28 @@
 # New React Project Boilerplate
 
-An alternative to using create-react-app with Parcel
+## Features
 
-## How to use
+### Component logic
 
-### Clone
+- Component structure using [model view](https://www.serendipidata.com/posts/react-design-patterns-container-view) code split
+- Logic separated from view
+- Components testable (TODO)
+- Components individually viewable
+- Separation of pages into modules, each with their own related functions/services/store
 
-```bash
-degit https://github.com/DarrenXu94/new-react-app#main
-```
+### State
 
-Degit removes all the repository git information.
+- Store state with [react-sweet-state](https://github.com/atlassian/react-sweet-state)
 
-### Install
+### Routing
 
-```bash
-npm i
-```
+- [React router](https://reactrouter.com/)
 
-### Run
+### CSS in JS
 
-```bash
-npm start
-```
+- Using [styled-components](https://styled-components.com/)
+- Combining with CSS variables explained [here](https://www.joshwcomeau.com/css/css-variables-for-react-devs/)
+
+### Services
+
+- Global services that can be testable (TODO)
