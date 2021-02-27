@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-interface IBodyView {
+interface BodyViewProps {
   data: string;
   bodyItems?;
 }
 
-export default function BodyView({ data, bodyItems }: IBodyView) {
+export default function BodyView({ data, bodyItems }: BodyViewProps) {
   return (
     <div>
       <div>

@@ -1,29 +1,38 @@
 import React from "react";
 
 import styled from "styled-components";
+import { COLORS } from "../../constants/cssVariables";
 
-interface IButton {
+interface ButtonProps {
   onClick?;
   isPrimary?;
+  style?;
+  text?;
 }
 
 const StyledButton = styled.button`
   /* Adapt the colors based on primary prop */
-  background: ${(props) => (props.primary ? "var(--color-primary)" : "white")};
-  color: ${(props) => (props.primary ? "white" : "var(--color-primary)")};
+  background: ${(props) =>
+    props.primary ? COLORS.colorPrimary : COLORS.colorBackground};
+  color: ${(props) =>
+    props.primary ? COLORS.colorBackground : COLORS.colorPrimary};
 
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
-  border: 2px solid var(--color-primary);
+  border: 2px solid ${COLORS.colorPrimary};
   border-radius: 3px;
+  cursor: pointer;
 `;
-export default function Button({ onClick, isPrimary }: IButton) {
+export default function Button({
+  onClick,
+  isPrimary,
+  style,
+  text = "Button",
+}: ButtonProps) {
   return (
-    <div>
-      <StyledButton primary={isPrimary} onClick={onClick}>
-        Test button
-      </StyledButton>
-    </div>
+    <StyledButton style={style} primary={isPrimary} onClick={onClick}>
+      {text}
+    </StyledButton>
   );
 }

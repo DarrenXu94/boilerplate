@@ -2,16 +2,16 @@ import { createStore, createHook, Action } from "react-sweet-state";
 
 type Actions = typeof actions;
 
-interface ILandingStore {
+interface LandingStoreProps {
   data: any[];
 }
 
-const initialState: ILandingStore = {
+const initialState: LandingStoreProps = {
   data: [],
 };
 
 const actions = {
-  setData: (value): Action<ILandingStore> => ({ setState, getState }) => {
+  setData: (value): Action<LandingStoreProps> => ({ setState, getState }) => {
     // mutate state synchronously
     setState({
       data: value,
@@ -19,7 +19,7 @@ const actions = {
   },
 };
 
-const LandingStore = createStore<ILandingStore, Actions>({
+const LandingStore = createStore<LandingStoreProps, Actions>({
   initialState,
   actions,
 });
