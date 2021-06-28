@@ -3,18 +3,25 @@ import Routes from "./main/routes/Routes";
 import { createGlobalStyle } from "styled-components";
 import { globalStyle } from "./library/common/constants/cssVariables";
 import "./library/css/variables.css";
+import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+
 const GlobalStyles = createGlobalStyle`
   ${globalStyle}
 `;
 // routing, etc.
+const queryClient = new QueryClient();
 
 export default class App extends React.Component {
   public render() {
     return (
-      <div>
-        <GlobalStyles />
-        <Routes />
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <div>
+          <GlobalStyles />
+          <Routes />
+        </div>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
     );
   }
 }

@@ -5,6 +5,7 @@ import {
 import { axiosGet } from "~/main/axios";
 
 export const fetchTodos = async () => {
+  console.log("Fetching todos");
   const res = await axiosGet(BASE_URL + URL_EXTENSIONS.todos);
   console.log(res);
   // Do all the error handling here?
