@@ -8,7 +8,7 @@ import { useLandingStore } from "./LandingStore";
 export default function Landing() {
   const [_, { setData }] = useLandingStore();
 
-  const { data } = useQuery("todos", fetchTodos, { staleTime: 10000 * 10 });
+  const { data } = useQuery("todos", fetchTodos);
 
   useEffect(() => {
     if (data) {
@@ -16,19 +16,6 @@ export default function Landing() {
     }
   }, [data]);
 
-  // const init = async () => {
-  //   try {
-  //     const res = await fetchTodos();
-  //     console.log(res);
-  //     setData(res);
-  //   } catch (e) {
-  //     // Handle the error here
-  //     console.log(e);
-  //   }
-  // };
-  // useEffect(() => {
-  //   init();
-  // }, []);
   return (
     <div>
       <Navbar />

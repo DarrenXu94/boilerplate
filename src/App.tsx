@@ -10,7 +10,14 @@ const GlobalStyles = createGlobalStyle`
   ${globalStyle}
 `;
 // routing, etc.
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 export default class App extends React.Component {
   public render() {
