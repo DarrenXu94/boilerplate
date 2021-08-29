@@ -8,25 +8,21 @@ import shallow from "zustand/shallow";
 
 export default function Body() {
   const [{ count }, _] = useCounter();
-  // const [{ pageNumber }, { setPageNumber }] = useLandingStore();
   const {
     pageNumber,
-    setPageNumber,
     deeplyNestedObectValue,
     deeplyNestedObectValueWatcher,
-    setDeeplyNested,
+    actions: { setPageNumber, setDeeplyNested },
   } = useLandingStore(
     (state) => ({
       deeplyNestedObectValue: state.deeplyNestedObect.first.second.third,
       deeplyNestedObectValueWatcher:
         state.deeplyNestedObect.first.second.fourth,
       pageNumber: state.pageNumber,
-      setPageNumber: state.setPageNumber,
-      setDeeplyNested: state.setDeeplyNested,
+      actions: state.actions,
     }),
     shallow
   );
-  // const setPageNumber = useLandingStore((state) => state.setPageNumber);
 
   useEffect(() => {
     console.log({ deeplyNestedObectValueWatcher });
