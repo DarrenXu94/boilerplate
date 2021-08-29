@@ -27,6 +27,7 @@
     "@types/react": "^16.9.51",
     "@types/react-dom": "^16.9.8",
     "axios": "^0.21.1",
+    "formik": "^2.2.9",
     "immer": "^9.0.5",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -36,7 +37,8 @@
     "react-sweet-state": "^2.5.2",
     "scheduler": "^0.20.2",
     "styled-components": "^5.2.1",
-    "valtio": "^1.2.2"
+    "valtio": "^1.2.2",
+    "yup": "^0.32.9"
   },
   "browserslist": [
     "last 1 Chrome version"

@@ -13,7 +13,6 @@ const kdramaObj = {
 
 const pageNavObj = {
   pageNumber: 1,
-
   deeplyNestedObect: { first: { second: { third: 0, fourth: 1 } } },
 };
 
@@ -25,10 +24,10 @@ const state = proxy({
 
 export default state;
 
-export const addDrama = () => {
+export const addDrama = (name) => {
   state.kdramas.push({
     id: Math.floor(Math.random() * 100),
-    name: "New",
+    name: name,
   });
 };
 
