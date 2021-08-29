@@ -1,29 +1,20 @@
-import { createStore, createHook, Action } from "react-sweet-state";
+import create from "zustand";
 
-type Actions = typeof actions;
-
-interface LandingStoreProps {
+type State = {
   pageNumber: number;
-}
+  deeplyNestedObect;
+  setPageNumber: (pageNumber: number) => void;
+  setDeeplyNested: (value) => void;
+};
 
-const initialState: LandingStoreProps = {
+const useLandingStore = create<State>((set) => ({
   pageNumber: 1,
-};
+  deeplyNestedObect: { first: { second: { third: 0, fourth: 1 } } },
+  setPageNumber: (pageNumber) => set(() => ({ pageNumber: pageNumber })),
+  setDeeplyNested: (value) =>
+    set((state) => {
+      state.deeplyNestedObect.first.second.third = value;
+    }),
+}));
 
-const actions = {
-  setPageNumber: (value): Action<LandingStoreProps> => ({
-    setState,
-    getState,
-  }) => {
-    setState({
-      pageNumber: value,
-    });
-  },
-};
-
-const LandingStore = createStore<LandingStoreProps, Actions>({
-  initialState,
-  actions,
-});
-
-export const useLandingStore = createHook(LandingStore);
+export default useLandingStore;
