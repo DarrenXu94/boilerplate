@@ -6,11 +6,15 @@ export interface KDramasProps {}
 export default function KDramas({}: KDramasProps) {
   const {
     kdramas,
+
     actions: { addDrama, removeDrama },
   } = useLandingStore((state) => ({
     kdramas: state.kdramas,
     actions: state.actions,
   }));
+
+  // const { } = useLandingStore()
+
   return (
     <div>
       {kdramas.map((item) => (
