@@ -5,6 +5,7 @@ import useLandingStore from "../../LandingStore";
 import BodyItemView from "./BodyItem/BodyItemView";
 import BodyView from "./BodyView";
 import shallow from "zustand/shallow";
+import KDramas from "./BodyItem/KDramas";
 
 export default function Body() {
   const [{ count }, _] = useCounter();
@@ -39,6 +40,8 @@ export default function Body() {
 
   return (
     <div>
+      <KDramas />
+      <h2>API</h2>
       <div>Page: {pageNumber}</div>
 
       {JSON.stringify(deeplyNestedObectValue)}
