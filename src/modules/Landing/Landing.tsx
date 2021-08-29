@@ -1,20 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Body from "./frames/Body/Body";
 import Navbar from "./frames/Navbar/Navbar";
-import { useFetchTodos } from "./LandingActions";
-import { useLandingStore } from "./LandingStore";
 
 export default function Landing() {
-  const [_, { setData }] = useLandingStore();
-
-  const { data } = useFetchTodos();
-
-  useEffect(() => {
-    if (data) {
-      setData(data);
-    }
-  }, [data]);
-
   return (
     <div>
       <Navbar />

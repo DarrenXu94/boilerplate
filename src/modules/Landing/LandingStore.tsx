@@ -3,18 +3,20 @@ import { createStore, createHook, Action } from "react-sweet-state";
 type Actions = typeof actions;
 
 interface LandingStoreProps {
-  data: any[];
+  pageNumber: number;
 }
 
 const initialState: LandingStoreProps = {
-  data: [],
+  pageNumber: 1,
 };
 
 const actions = {
-  setData: (value): Action<LandingStoreProps> => ({ setState, getState }) => {
-    // mutate state synchronously
+  setPageNumber: (value): Action<LandingStoreProps> => ({
+    setState,
+    getState,
+  }) => {
     setState({
-      data: value,
+      pageNumber: value,
     });
   },
 };

@@ -5,5 +5,10 @@ interface BodyItemViewProps {
 }
 
 export default function BodyItemView({ item }: BodyItemViewProps) {
-  return <div>{item.title}Body item</div>;
+  return (
+    <div>
+      <div>{item.id}</div>
+      <div>{item.title}</div>
+    </div>
+  );
 }
