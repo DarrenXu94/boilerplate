@@ -1,35 +1,41 @@
 import React, { useCallback, useEffect } from "react";
 import { useCounter } from "~/main/stores/CounterStore";
 import { useFetchTodos } from "../../LandingActions";
-import useLandingStore from "../../LandingStore";
+import useLandingState, {
+  setDeeplyNested,
+  setPageNumber,
+} from "../../LandingStore";
 import BodyItemView from "./BodyItem/BodyItemView";
 import BodyView from "./BodyView";
 import shallow from "zustand/shallow";
 import KDramas from "./BodyItem/KDramas";
+import { useSnapshot } from "valtio";
 
 export default function Body() {
   const [{ count }, _] = useCounter();
-  const {
-    pageNumber,
-    deeplyNestedObectValue,
-    deeplyNestedObectValueWatcher,
-    actions: { setPageNumber, setDeeplyNested },
-  } = useLandingStore(
-    (state) => ({
-      deeplyNestedObectValue: state.deeplyNestedObect.first.second.third,
-      deeplyNestedObectValueWatcher:
-        state.deeplyNestedObect.first.second.fourth,
-      pageNumber: state.pageNumber,
-      actions: state.actions,
-    }),
-    shallow
-  );
+  // const {
+  //   pageNumber,
+  //   deeplyNestedObectValue,
+  //   deeplyNestedObectValueWatcher,
+  //   actions: { setPageNumber, setDeeplyNested },
+  // } = useLandingStore(
+  //   (state) => ({
+  //     deeplyNestedObectValue: state.deeplyNestedObect.first.second.third,
+  //     deeplyNestedObectValueWatcher:
+  //       state.deeplyNestedObect.first.second.fourth,
+  //     pageNumber: state.pageNumber,
+  //     actions: state.actions,
+  //   }),
+  //   shallow
+  // );
+
+  const snap = useSnapshot(useLandingState);
 
   useEffect(() => {
-    console.log({ deeplyNestedObectValueWatcher });
-  }, [deeplyNestedObectValueWatcher]);
+    console.log({ obj: snap.deeplyNestedObect });
+  }, [snap.deeplyNestedObect.first.second.fourth]);
 
-  const { data } = useFetchTodos({ pageNumber: pageNumber });
+  const { data } = useFetchTodos({ pageNumber: snap.pageNumber });
 
   const generateBodyItems = useCallback(() => {
     if (!data) return;
@@ -42,29 +48,29 @@ export default function Body() {
     <div>
       <KDramas />
       <h2>API</h2>
-      <div>Page: {pageNumber}</div>
+      <div>Page: {snap.pageNumber}</div>
 
-      {JSON.stringify(deeplyNestedObectValue)}
+      {JSON.stringify(snap.deeplyNestedObect)}
 
       <button
         onClick={() => {
-          setDeeplyNested(deeplyNestedObectValue + 1);
+          setDeeplyNested(snap.deeplyNestedObect.first.second.third + 1);
         }}
       >
         Set deeply nested
       </button>
 
       <button
-        disabled={pageNumber <= 1}
+        disabled={snap.pageNumber <= 1}
         onClick={() => {
-          setPageNumber(pageNumber - 1);
+          setPageNumber(snap.pageNumber - 1);
         }}
       >
         Previous
       </button>
       <button
         onClick={() => {
-          setPageNumber(pageNumber + 1);
+          setPageNumber(snap.pageNumber + 1);
         }}
       >
         Next

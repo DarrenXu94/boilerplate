@@ -1,23 +1,27 @@
 import React from "react";
-import useLandingStore from "~/modules/Landing/LandingStore";
+import useLandingState, {
+  addDrama,
+  removeDrama,
+} from "~/modules/Landing/LandingStore";
+import { useSnapshot } from "valtio";
 
 export interface KDramasProps {}
 
 export default function KDramas({}: KDramasProps) {
-  const {
-    kdramas,
-
-    actions: { addDrama, removeDrama },
-  } = useLandingStore((state) => ({
-    kdramas: state.kdramas,
-    actions: state.actions,
-  }));
+  // const {
+  //   kdramas,
+  //   actions: { addDrama, removeDrama },
+  // } = useLandingStore((state) => ({
+  //   kdramas: state.kdramas,
+  //   actions: state.actions,
+  // }));
+  const snap = useSnapshot(useLandingState);
 
   // const { } = useLandingStore()
 
   return (
     <div>
-      {kdramas.map((item) => (
+      {snap.kdramas.map((item) => (
         <div>{item.name}</div>
       ))}
 
