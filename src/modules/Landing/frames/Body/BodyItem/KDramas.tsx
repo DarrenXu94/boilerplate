@@ -8,16 +8,7 @@ import { useSnapshot } from "valtio";
 export interface KDramasProps {}
 
 export default function KDramas({}: KDramasProps) {
-  // const {
-  //   kdramas,
-  //   actions: { addDrama, removeDrama },
-  // } = useLandingStore((state) => ({
-  //   kdramas: state.kdramas,
-  //   actions: state.actions,
-  // }));
   const snap = useSnapshot(useLandingState);
-
-  // const { } = useLandingStore()
 
   return (
     <div>

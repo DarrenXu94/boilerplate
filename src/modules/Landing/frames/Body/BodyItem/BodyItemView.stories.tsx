@@ -3,7 +3,7 @@ import BodyItemView from "./BodyItemView";
 import { Meta } from "@storybook/react/types-6-0";
 
 export default {
-  title: "Example/Button",
+  title: "Example/BodyItemView",
   component: BodyItemView,
   argTypes: {
     item: { control: "Test" },

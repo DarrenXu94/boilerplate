@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect } from "react";
+import { useSnapshot } from "valtio";
 import { useCounter } from "~/main/stores/CounterStore";
 import { useFetchTodos } from "../../LandingActions";
 import useLandingState, {
@@ -6,28 +7,11 @@ import useLandingState, {
   setPageNumber,
 } from "../../LandingStore";
 import BodyItemView from "./BodyItem/BodyItemView";
-import BodyView from "./BodyView";
-import shallow from "zustand/shallow";
 import KDramas from "./BodyItem/KDramas";
-import { useSnapshot } from "valtio";
+import BodyView from "./BodyView";
 
 export default function Body() {
   const [{ count }, _] = useCounter();
-  // const {
-  //   pageNumber,
-  //   deeplyNestedObectValue,
-  //   deeplyNestedObectValueWatcher,
-  //   actions: { setPageNumber, setDeeplyNested },
-  // } = useLandingStore(
-  //   (state) => ({
-  //     deeplyNestedObectValue: state.deeplyNestedObect.first.second.third,
-  //     deeplyNestedObectValueWatcher:
-  //       state.deeplyNestedObect.first.second.fourth,
-  //     pageNumber: state.pageNumber,
-  //     actions: state.actions,
-  //   }),
-  //   shallow
-  // );
 
   const snap = useSnapshot(useLandingState);
 
