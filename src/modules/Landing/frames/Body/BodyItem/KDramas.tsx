@@ -45,8 +45,8 @@ export default function KDramas({}: KDramasProps) {
         </Form>
       </Formik>
 
-      <button onClick={addDrama}>Add new</button>
-      <button onClick={removeDrama}>Remove first</button>
+      <button onClick={() => addDrama("Test")}>Add new</button>
+      <button onClick={() => removeDrama()}>Remove first</button>
     </div>
   );
 }
