@@ -1,3 +1,4 @@
+import { proxy } from "valtio";
 const kdramaObj = {
   kdramas: [
     {
@@ -16,7 +17,6 @@ const pageNavObj = {
   deeplyNestedObect: { first: { second: { third: 0, fourth: 1 } } },
 };
 
-import { proxy } from "valtio";
 const state = proxy({
   ...kdramaObj,
   ...pageNavObj,

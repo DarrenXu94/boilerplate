@@ -1,19 +1,11 @@
+import { Form, Formik, useField } from "formik";
 import React from "react";
+import { useSnapshot } from "valtio";
+import * as Yup from "yup";
 import useLandingState, {
   addDrama,
   removeDrama,
 } from "~/modules/Landing/LandingStore";
-import { useSnapshot } from "valtio";
-import {
-  ErrorMessage,
-  Field,
-  FieldHookConfig,
-  Form,
-  Formik,
-  useField,
-  useFormik,
-} from "formik";
-import * as Yup from "yup";
 
 export interface KDramasProps {}
 
@@ -28,13 +20,6 @@ export default function KDramas({}: KDramasProps) {
 
       <Formik
         initialValues={{ name: "" }}
-        // validate={(values) => {
-        //   const errors: any = {};
-        //   if (!values.name) {
-        //     errors.name = "Required";
-        //   }
-        //   return errors;
-        // }}
         validationSchema={Yup.object({
           name: Yup.string()
             .max(5, "Must be 5 characters or less")
@@ -42,7 +27,6 @@ export default function KDramas({}: KDramasProps) {
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            //  alert(JSON.stringify(values, null, 2));
             addDrama(values.name);
             setSubmitting(false);
           }, 400);
@@ -50,8 +34,6 @@ export default function KDramas({}: KDramasProps) {
       >
         <Form>
           <label htmlFor="name">Name</label>
-          {/* <Field id="name" name="name" placeholder="Name" />
-          <ErrorMessage name="name" /> */}
           <MyTextInput
             label="Name"
             name="name"
@@ -69,15 +51,11 @@ export default function KDramas({}: KDramasProps) {
   );
 }
 
-interface OtherProps {
-  label: string;
-}
-
-const MyTextInput = (props: OtherProps & FieldHookConfig<string>) => {
+const MyTextInput = (props) => {
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
   // which we can spread on <input>. We can use field meta to show an error
   // message if the field is invalid and it has been touched (i.e. visited)
-  const [field, meta, helpers] = useField(props);
+  const [field, meta] = useField(props);
 
   return (
     <>
