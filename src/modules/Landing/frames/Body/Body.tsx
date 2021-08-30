@@ -10,7 +10,9 @@ import BodyItemView from "./BodyItem/BodyItemView";
 import KDramas from "./BodyItem/KDramas";
 import BodyView from "./BodyView";
 
-export default function Body() {
+export interface BodyProps {}
+
+export default function Body({}: BodyProps) {
   const [{ count }, _] = useCounter();
 
   const snap = useSnapshot(useLandingState);

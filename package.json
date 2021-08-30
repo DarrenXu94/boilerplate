@@ -6,7 +6,7 @@
   "scripts": {
     "build": "$(npm bin)/parcel build ./src/index.html",
     "start": "parcel ./src/index.html --open",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --static-dir=public",
     "build-storybook": "build-storybook"
   },
   "keywords": [],
@@ -19,6 +19,7 @@
     "@storybook/addon-links": "^6.1.19",
     "@storybook/react": "^6.1.19",
     "babel-loader": "^8.2.2",
+    "msw": "^0.35.0",
     "parcel-bundler": "^1.12.4",
     "tsconfig-paths-webpack-plugin": "^3.5.1",
     "typescript": "^4.0.3"
@@ -43,5 +44,8 @@
   },
   "browserslist": [
     "last 1 Chrome version"
-  ]
+  ],
+  "msw": {
+    "workerDirectory": "./public"
+  }
 }
