@@ -1,9 +1,10 @@
 import React from "react";
 
 import styled from "styled-components";
-import { COLORS } from "../../constants/cssVariables";
+// import { COLORS } from "../../constants/cssVariables";
+import { COLORS } from "~/library/common/constants/cssVariables";
 
-interface ButtonProps {
+export interface ButtonProps {
   onClick?;
   isPrimary?;
   style?;
