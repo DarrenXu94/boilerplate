@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import { useSnapshot } from "valtio";
-import { useCounter } from "~/main/stores/CounterStore";
-import { useFetchTodos } from "../../LandingActions";
+// import { useFetchTodos } from "../../LandingActions";
 import useLandingState, {
   setDeeplyNested,
   setPageNumber,
@@ -13,26 +12,26 @@ import BodyView from "./BodyView";
 export interface BodyProps {}
 
 export default function Body({}: BodyProps) {
-  const [{ count }, _] = useCounter();
+  // const [{ count }, _] = useCounter();
 
-  const snap = useSnapshot(useLandingState);
+  // const snap = useSnapshot(useLandingState);
 
-  useEffect(() => {
-    console.log({ obj: snap.deeplyNestedObect });
-  }, [snap.deeplyNestedObect.first.second.fourth]);
+  // useEffect(() => {
+  //   console.log({ obj: snap.deeplyNestedObect });
+  // }, [snap.deeplyNestedObect.first.second.fourth]);
 
-  const { data } = useFetchTodos({ pageNumber: snap.pageNumber });
+  // const { data } = useFetchTodos({ pageNumber: snap.pageNumber });
 
-  const generateBodyItems = useCallback(() => {
-    if (!data) return;
-    return data.map((item) => {
-      return <BodyItemView key={item.id} item={item} />;
-    });
-  }, [data]);
+  // const generateBodyItems = useCallback(() => {
+  //   if (!data) return;
+  //   return data.map((item) => {
+  //     return <BodyItemView key={item.id} item={item} />;
+  //   });
+  // }, [data]);
 
   return (
     <div>
-      <KDramas />
+      {/* <KDramas />
       <h2>API</h2>
       <div>Page: {snap.pageNumber}</div>
 
@@ -62,7 +61,7 @@ export default function Body({}: BodyProps) {
         Next
       </button>
 
-      <BodyView bodyItems={generateBodyItems} />
+      <BodyView bodyItems={generateBodyItems} /> */}
     </div>
   );
 }

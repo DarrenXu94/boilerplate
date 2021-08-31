@@ -5,4 +5,4 @@ export enum URL_EXTENSIONS {
   users = "users",
 }
 
-export const PAGE_SIZE = 80;
+export const PAGE_SIZE = 70;
