@@ -9,10 +9,12 @@
 - Components testable (TODO)
 - Components individually viewable
 - Separation of pages into modules, each with their own related functions/services/store
+- Mocking requests with [msw](https://mswjs.io/) in Storybook
 
 ### State
 
-- Store state with [react-sweet-state](https://github.com/atlassian/react-sweet-state)
+- Store state with [Valtio](https://github.com/pmndrs/valtio)
+- Server side state with [React Query](https://react-query.tanstack.com/)
 
 ### Routing
 
