@@ -5,11 +5,11 @@ import { globalStyle } from "./library/common/constants/cssVariables";
 import "./library/css/variables.css";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import Navbar from "./library/common/components/Navbar/Navbar";
 
 const GlobalStyles = createGlobalStyle`
   ${globalStyle}
 `;
-// routing, etc.
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -25,7 +25,9 @@ export default class App extends React.Component {
       <QueryClientProvider client={queryClient}>
         <div>
           <GlobalStyles />
-          <Routes />
+          <Routes>
+            <Navbar />
+          </Routes>
         </div>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>

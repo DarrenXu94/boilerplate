@@ -15,6 +15,10 @@ export default function User({}: UserProps) {
     <div>
       {data && (
         <div>
+          <img
+            src={`https://avatars.dicebear.com/api/open-peeps/${data.name}.svg`}
+            alt="Dynamically generated avatar"
+          />
           {data.name} {data.email} {data.company.name}
         </div>
       )}

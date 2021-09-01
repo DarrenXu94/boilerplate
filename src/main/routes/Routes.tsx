@@ -7,9 +7,10 @@ import ToDo from "~/modules/ToDos/ToDo/ToDo";
 import Users from "~/modules/Landing/Users/Users";
 import User from "~/modules/Landing/Users/User/User";
 
-export default function Routes() {
+export default function Routes({ children }) {
   return (
     <Router>
+      {children}
       <Switch>
         <Route path="/user/:id">
           <User />
