@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Button/Button";
 
 export interface PaginationProps {
   pageNumber: number;
@@ -18,12 +19,12 @@ export default function Pagination({
       <p>
         Page {pageNumber} of {totalPages}
       </p>
-      <button disabled={pageNumber <= 1} onClick={onPreviousClick}>
+      <Button disabled={pageNumber <= 1} onClick={onPreviousClick}>
         Previous
-      </button>
-      <button disabled={pageNumber >= totalPages} onClick={onNextClick}>
+      </Button>
+      <Button disabled={pageNumber >= totalPages} onClick={onNextClick}>
         Next
-      </button>
+      </Button>
     </div>
   );
 }
