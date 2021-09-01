@@ -20,12 +20,20 @@ const StyledButton = styled.button`
   border: 2px solid ${COLORS.colorPrimary};
   border-radius: 3px;
   cursor: pointer;
+
+  &:hover:enabled {
+    background: ${COLORS.colorPrimary};
+    color: ${COLORS.colorBackground};
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
 export default function Button({
   isPrimary,
   ...props
 }: ButtonProps & React.HTMLProps<HTMLButtonElement>) {
-  console.log(props);
   return (
     <StyledButton primary={isPrimary} {...props}>
       {props.children}
