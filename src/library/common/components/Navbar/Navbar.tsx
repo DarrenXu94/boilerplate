@@ -7,6 +7,9 @@ export default function Navbar({}: NavbarProps) {
   return (
     <ul>
       <li>
+        <Link to={`/`}>Home</Link>
+      </li>
+      <li>
         <Link to={`/users`}>Users</Link>
       </li>
       <li>
